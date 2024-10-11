@@ -52,6 +52,7 @@ table {
     --lt-blue: #7cabc1;
     --dk-gray: #222;
     --med-gray: #555;
+    --lt-gray: #9c9c9c;
     --orange: #ff5c00;
 }
 *, *::before, *::after{
@@ -68,11 +69,11 @@ body {
     background-image: url(images/blueBg.png);
     background-size: 100%;
     cursor: default;
+    color: var(--dk-gray);
 }
 
 /* --- header and nav styles --- */
 header {
-   background-image: url(images/blueBg.png);
    background-size: 100%;
    display: grid;
    grid-template-columns: 0.25fr 1fr 2fr;
@@ -86,7 +87,7 @@ header {
 h1 {
     font-size: 2.5rem;
     text-transform: uppercase;
-    color: var(--white);
+    
 }
 h2 {
     font-size: 2rem;
@@ -106,18 +107,18 @@ q::after {
 }
 a {
     cursor: pointer;
+    color: inherit;
+    text-decoration: none;
+
 }
 ul {
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
 }
 li {
     font-size: 1.5rem;
     text-transform: uppercase;
-}
-a {
-    text-decoration: none;
-    color: var(--white);
 }
 header a {
     font-weight: bold;
@@ -136,7 +137,6 @@ header a {
     align-items: center;
     width: 75%;
     margin: 0 auto;
-    color: var(--white);
 }
 #intro h2 {
     grid-column: -1/1;
@@ -160,8 +160,8 @@ cite {
 /* --- tour dates styles --- */
 #tour {
     padding: 15px;
-    color: var(--white);
     background-color: var(--dk-gray);
+    color: var(--white);
 }
 #tour h2 {
     text-align: center;
@@ -203,7 +203,6 @@ th a {
 #game {
     margin-top: 2px;
     padding-bottom: 32px;
-    color: var(--white);
 }
 #game div {
     display: grid;
@@ -250,11 +249,12 @@ th a {
 button, input[type="submit"] {
     display: block;
     padding: 16px;
-    background-color: var(--dk-gray);
-    color: var(--white);
+    background-color: var(--lt-gray);
     border: none;
     border-radius: 5px;
-    box-shadow: -5px 5px 5px var(--med-gray);
+    box-shadow: -5px 5px 5px var(--black);
+    font-weight: 600;
+    color: inherit;
 }
 input[type="submit"] {
     width: 50%;
@@ -266,8 +266,6 @@ input[type="submit"] {
     background-color: var(--lt-blue);
 }
 #darkMode {
-    background-color: var(--white);
-    color: var(--lt-blue);
     padding: 10px;
     font-weight: 600;
 }
@@ -292,7 +290,6 @@ input[type="submit"] {
     padding: 10px 30px;
     width: 90%;
     margin: 0 auto;
-    color: var(--white);
 }
 #music h2 {
     padding-bottom: 10px;
@@ -334,7 +331,7 @@ input[type="submit"] {
 
 /* --- hover styles ---*/
 button:hover, input[type="submit"]:hover {
-    box-shadow: -3px 3px 6px var(--med-gray);
+    box-shadow: -3px 3px 6px var(--black);
     cursor: pointer;
 }
 th a:hover, #merch button:hover, #merch input[type="submit"]:hover {
@@ -342,9 +339,6 @@ th a:hover, #merch button:hover, #merch input[type="submit"]:hover {
 }
 nav a:hover, td a:hover, footer a:hover {
     text-decoration: underline;
-}
-h1 a:hover {
-    color: var(--dk-gray);
 }
 
 /* --- cart ---*/
@@ -422,7 +416,6 @@ h1 a:hover {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 0.5fr 3fr;
-    color: var(--white);
 }
 #contact h2 {
     padding: 2rem 0 1rem 2rem;
@@ -455,7 +448,7 @@ input {
     height: 2.5rem;
 }
 fieldset {
-    border: 1px solid var(--dk-gray);
+    border: 1px solid;
     padding: 0.5rem 0 1rem 0.5rem;
     margin: 0.75rem 0 0.25rem 0;
     width: 98%;
@@ -491,20 +484,45 @@ input:focus, textarea:focus {
 footer {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: flex-end;
     padding: 1rem 0 1rem 0;
 }
 small {
-    color: var(--white);
     font-size: 1rem;
 }
 footer ul {
     width: 70%;
     justify-content: space-around;
-    align-items: center;
 }
 footer a {
     font-size: 1rem;
     text-transform: capitalize;
 }
 /* --- dark mode styles --- */
+.darkMode {
+    color: var(--white);
+    background-image: none;
+    background-color: var(--dk-gray);
+}
+/* --- form validation --- */
+.error {
+    display: block;
+    font-size: 1rem;
+}
+.errorInput {
+    border: 1px solid var(--orange);
+}
+.hide {
+    display: none;
+}
+#success {
+    padding: 10px 20px;
+    max-width: 65ch;
+    font-family: "Roboto", sans-serif;
+}
+#success p {
+    padding-right: 70px;
+}
+strong {
+    font-weight: bold;
+}

@@ -5,9 +5,10 @@
         <title>Hey Role Model</title>
         <meta name="author" content="Jessica Piper">
         <link href="styles.css" rel="stylesheet">
+        <script src="script.js" defer></script>
     </head>
     <!--All imgs come from heyrolemodel.com-->
-    <body>
+    <body class="darkMode">
         <header>
             <a href="#"><img id="logo" src="images/rmLogoWhite.avif" alt="white 'RM' logo with a transparent background"></a>
             <h1><a href="#">Role Model</a></h1>
@@ -17,6 +18,7 @@
                     <li><a href="#music">Music</a></li>
                     <li><a href="#merch">Merch</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <li><button id="darkMode">Light/Dark Mode</button></li>
                 </ul>
             </nav>
             <img id="heroImg" src="images/heroImg.jpg" alt="a black and white photo of Role Model in a cowboy hat and leather jacket, his back is towards the camera and he is looking off to the side.">
@@ -151,30 +153,39 @@
             </section>
             <section id="contact">
                 <h2>Contact Us</h2>
-                <form>
+                <form id="contactUs">
                     <label for="fullName">Full Name<span class="required">*</span></label>
-                    <input type="text" name="fullName" id="fullName" required>
+                    <span class="message">Please enter your full name</span>
+                    <input type="text" name="fullName" id="fullName">
 
                     <label for="myEmail">Email</label>
                     <input type="email" name="myEmail" id="myEmail">
 
-                    <label for="myPhone">Phone</label>
+                    <label for="myPhone">Phone (xxx-xxx-xxxx)</label>
                     <input type="tel" name="myPhone" id="myPhone">
 
                     <fieldset>
-                        <legend>Preferred Contact Method<span class="required">*</span></legend>
+                        <legend>Preferred Contact Method<span class="required">*</span></legend> 
                         <input type="radio" name="preferredContact" id="prefEmail" checked>
                         <label for="prefEmail">Email</label>
+                        <span class="message">Please enter your email above</span>
 
                         <input type="radio" name="preferredContact" id="prefPhone">
                         <label for="prefPhone">Phone</label>
+                        <span class="message">Please enter your phone number above</span>
                     </fieldset>
 
                     <label for="comments">Comments<span class="required">*</span></label>
-                    <textarea name="comments" id="comments"></textarea>
+                    <span class="message">Please enter your comments</span>
+                    <textarea name="comments" id="comments"></textarea required>
 
                     <input type="submit" name="submitBtn" id="submitBtn">
                 </form>
+                <section id="success" class="hide">
+                    <h3>Thank you!</h3>
+                    <p>You have successfully submitted the form. Here is the information you sent us:</p>
+                    <p id="formSub"></p>
+                </section>
                 <img src="images/kaImg.jpg" alt="a grid of 19 black and white photos of role model and the blue 'rm' logo">
             </section>
         </main>
@@ -183,7 +194,6 @@
             <ul>
                 <li><a href="#copy">Terms & Conditions</a></li>
                 <li><a href="#copy">Privacy Policy</a></li>
-                <li><button id="darkMode">Light/Dark Mode</button></li>
             </ul>
         </footer>
     </body>
