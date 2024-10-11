@@ -308,21 +308,14 @@ input[type="submit"] {
 #music q {
     align-self: center;
 }
-#music .currentItem {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    column-gap: 16px;
-}
-.hiddenItem {
-    display: none;
-}
 #switcherButtons {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 16px;
-    width: fit-content;
+    display: flex;
     margin: 2rem auto;
+    justify-content: center;
+}
+#switcherButtons button {
+    width: fit-content;
+    margin: 0 1rem;
 }
 #music iframe {
     grid-row: 1/-1;
@@ -512,8 +505,11 @@ footer a {
 .errorInput {
     border: 1px solid var(--orange);
 }
-.hide {
+#success.hide {
     display: none;
+}
+#success.show {
+    display: block;
 }
 #success {
     padding: 10px 0;
@@ -529,3 +525,21 @@ footer a {
 strong {
     font-weight: bold;
 }
+/* --- product switcher --- */
+#music .currentItem {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    column-gap: 16px;
+}
+#music .hiddenItem {
+    display: none;
+}
+#video2 h3 {
+    padding-bottom: 10px;
+}
+#video2 p {
+    padding-top: 10px;
+}
+
+
