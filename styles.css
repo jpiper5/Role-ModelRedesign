@@ -516,12 +516,15 @@ footer a {
     display: none;
 }
 #success {
-    padding: 10px 20px;
-    max-width: 65ch;
+    padding: 10px 0;
+    width: 50%;
     font-family: "Roboto", sans-serif;
+    margin: 0 auto;
+    line-height: 1.5;
 }
-#success p {
-    padding-right: 70px;
+#success h3 {
+    font-weight: bold;
+    text-align: center;
 }
 strong {
     font-weight: bold;
