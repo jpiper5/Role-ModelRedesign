@@ -10,7 +10,9 @@ document.getElementById("contactUs").addEventListener("submit", validateForm);
 document.getElementById("btn1").addEventListener("click", showProduct1);
 document.getElementById("btn2").addEventListener("click", showProduct2);
 document.getElementById("btn3").addEventListener("click", showProduct3);
-document.getElementById("btn4").addEventListener("click", showProduct4);
+
+//numGuess game 
+document.getElementById("guessGame").addEventListener("click", game);
 
 //light/dark mode toggle
 function darkMode() {
@@ -125,6 +127,8 @@ function validateForm(e) {
  }
 
 //product switcher 
+
+//removes hiddenItem from video 1 and adds currentItem, adds hiddenItem to other 2 videos
 function showProduct1() {
    document.querySelector("#video1").classList.remove("hiddenItem");
    document.querySelector("#video1").classList.add("currentItem");
@@ -132,10 +136,9 @@ function showProduct1() {
    document.querySelector("#video2").classList.add("hiddenItem");
    document.querySelector("#video3").classList.remove("currentItem");
    document.querySelector("#video3").classList.add("hiddenItem");
-   document.querySelector("#video4").classList.remove("currentItem");
-   document.querySelector("#video4").classList.add("hiddenItem");
 }
 
+//removes hiddenItem from video 2 and adds currentItem, adds hiddenItem to other 2 videos
 function showProduct2() {
    document.querySelector("#video2").classList.remove("hiddenItem");
    document.querySelector("#video2").classList.add("currentItem");
@@ -143,10 +146,10 @@ function showProduct2() {
    document.querySelector("#video1").classList.add("hiddenItem");
    document.querySelector("#video3").classList.remove("currentItem");
    document.querySelector("#video3").classList.add("hiddenItem");
-   document.querySelector("#video4").classList.remove("currentItem");
-   document.querySelector("#video4").classList.add("hiddenItem");
+
 }
 
+//removes hiddenItem from video 3 and adds currentItem, adds hiddenItem to other 2 videos
 function showProduct3() {
    document.querySelector("#video3").classList.remove("hiddenItem");
    document.querySelector("#video3").classList.add("currentItem");
@@ -154,18 +157,62 @@ function showProduct3() {
    document.querySelector("#video1").classList.add("hiddenItem");
    document.querySelector("#video2").classList.remove("currentItem");
    document.querySelector("#video2").classList.add("hiddenItem");
-   document.querySelector("#video4").classList.remove("currentItem");
-   document.querySelector("#video4").classList.add("hiddenItem");
+
 }
-function showProduct4() {
-   document.querySelector("#video4").classList.remove("hiddenItem");
-   document.querySelector("#video4").classList.add("currentItem");
-   document.querySelector("#video1").classList.remove("currentItem");
-   document.querySelector("#video1").classList.add("hiddenItem");
-   document.querySelector("#video2").classList.remove("currentItem");
-   document.querySelector("#video2").classList.add("hiddenItem");
-   document.querySelector("#video3").classList.remove("currentItem");
-   document.querySelector("#video3").classList.add("hiddenItem");
+
+function game() {
+   let winningDisplay = document.getElementById("winningNumber");
+   let chosenDisplay = document.getElementById("chosenNumber");
+   let gameMessage = document.getElementById("gameMessage");
+
+  
+
+   let winningNumber = getRandomNumber(1, 10);
+   let chosenNumber = document.getElementById("numGuess");
+
+   winningDisplay.innerHTML = "Winning Number: " + winningNumber;
+   chosenDisplay.innerHTML = "Your Guess: " + chosenNumber;
+
+  
+    if(chosenNumber === 1) {
+      gameMessage.innerHTML = "You Win!"
+   } else {
+      gameMessage.innerHTML = "You Lose. Better Luck Next Time!"
+      console.log(winningNumber);
+   }
+
+  
+
+ // let errorSpan = document.querySelector("#game .message");
+   // numGuess.classList.remove("errorInput");
+   // errorSpan.classList.remove("error");
+
+   // if(chosenNumber === "") {
+   //    numGuess.classList.add("errorInput");
+   //    errorSpans.class("error");
+   // } else if (!chosenNumber >= 1 && chosenNumber <= 10) {
+   //    numGuess.classList.add("errorInput");
+   //    errorSpans.class("error");
+   // // 
+
+   // let errorSpan = document.querySelector("#game .message");
+
+   // let output = "";
+
+   // let numOutput = document.getElementById("gameOutput");
+
+   // 
+
+   // if (numInput.value === "") {
+   //    numInput.classList.add("errorInput");
+   //    errorSpan.class("error");
+   // } else {
+   //    output +=
+   // }
+
+  
+
+
 }
 
 

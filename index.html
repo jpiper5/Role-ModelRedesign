@@ -16,7 +16,6 @@
                 <ul>
                     <li><a href="#tour">Tour</a></li>
                     <li><a href="#music">Music</a></li>
-                    <li><a href="#merch">Merch</a></li>
                     <li><a href="#contact">Contact</a></li>
                     <li><button id="darkMode">Light/Dark Mode</button></li>
                 </ul>
@@ -69,6 +68,9 @@
                     <section id="gameDisplay">
                         <h3>Win a Free Ticket to Your Local Show!</h3>
                         <p>Enter a number between 1 and 10 in the box to the right and click the button to play. If your number matches, you win!</p>
+                        <span id="winningNumber"></span>
+                        <span id="chosenNumber"></span>
+                        <p id="gameMessage"></p>
                     </section>
                     <form>
                         <label for="numGuess">Enter a Number Between 1 and 10:</label>
@@ -106,44 +108,6 @@
                     <button id="btn1">Oh, Gemini</button>
                     <button id="btn2">Deeply Still In Love</button>
                     <button id="btn3">Look At That Woman</button>
-                </section>
-            </section>
-            <section id="merch">
-                <h2>Merch</h2>
-                <section id="products">
-                    <h3 class="sr-only">Our Products</h3>
-                    <section class="flex">
-                        <img src="images/vinylImg.webp" alt="kansas anymore light blue vinyl">
-                        <h4>Kansas Anymore Vinyl</h4>
-                        <p>$30</p>
-                        <button id="pn1">Add To Cart</button>
-                    </section>
-                    <section class="flex">
-                        <img src="images/cdImg.webp" alt="kansas anymore light blue cd">
-                        <h4>Kansas Anymore CD</h4>
-                        <p>$12</p>
-                        <button id="pn2">Add To Cart</button>
-                    </section>
-                    <section class="flex">
-                        <img src="images/sweaterImg.webp" alt="cream crewneck sweater with red letters that say 'FANGIRL'">
-                        <h4>Fangirl Crewneck</h4>
-                        <p>$60</p>
-                        <button id="pn3">Add To Cart</button>
-                    </section>
-                </section>
-                <section id="total">
-                    <h3>Cart</h3>
-                    <ul id="itemsList">
-                        <li class="hide">Your Cart is Empty</li>
-                        <li></li>
-                    </ul>
-                    <ul>
-                        <li id="subtotal1">Subtotal:<span>$0</span></li>
-                        <li id="shipping1">Shipping:<span>$0</span></li>
-                        <li id="tax">Tax:<span>$0</span></li>
-                        <li id="total1">Total:<span>$0</span></li>
-                    </ul>
-                    <button id="checkout1">Checkout</button>
                 </section>
             </section>
             <section id="contact">
