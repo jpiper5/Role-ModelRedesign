@@ -280,7 +280,6 @@ input[type="submit"] {
 .errorInput {
     border: 1px solid var(--orange);
 }
-
 /* ---switcher/music section ---*/
 #music {
     padding: 10px 30px;
@@ -423,13 +422,6 @@ footer a {
     background-color: var(--dk-gray);
 }
 /* --- form validation --- */
-.error {
-    display: block;
-    font-size: 1rem;
-}
-.errorInput {
-    border: 1px solid var(--orange);
-}
 #success.hide {
     display: none;
 }

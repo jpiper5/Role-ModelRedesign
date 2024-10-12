@@ -2,16 +2,16 @@
 "use strict";
 
 // event handlers
-// for dark mode 
+// for dark mode button
 document.getElementById("darkMode").addEventListener("click", darkMode);
-// for form validation 
+// for form validation button
 document.getElementById("contactUs").addEventListener("submit", validateForm);
-//for product switcher
+//for product switcher buttons
 document.getElementById("btn1").addEventListener("click", showProduct1);
 document.getElementById("btn2").addEventListener("click", showProduct2);
 document.getElementById("btn3").addEventListener("click", showProduct3);
 
-//numGuess game 
+//numGuess game button
 document.getElementById("guessGame").addEventListener("click", game);
 
 //light/dark mode toggle
@@ -68,7 +68,7 @@ function validateForm(e) {
      isValid = false;
    }
 
-   // validates email matches regex and isn't blank when email radio button is selected
+   //validates email matches regex and isn't blank when email radio button is selected
    if (myForm.prefEmail.checked && (myForm.myEmail.value === "" || !(emailRegex.test(myForm.myEmail.value)))) {
 
          //adds errorInput class to radio button if email isn't valid  
@@ -108,7 +108,7 @@ function validateForm(e) {
      //adds error message
      errorSpans[3].classList.add("error");
 
-   //sets form validation variable to false
+      //sets form validation variable to false
      isValid = false;
    }
    
@@ -121,7 +121,7 @@ function validateForm(e) {
       //shows the data they submitted
       document.getElementById("formSub").innerHTML = `<strong>Full Name: </strong>${myForm.fullName.value}<br><strong>Email: </strong>${myForm.myEmail.value}<br><strong>Phone: </strong>${myForm.myPhone.value}<br><strong>Comments: </strong>${myForm.comments.value}`;
      
-     // reset the form
+     //reset the form
        myForm.reset();
    }
  }
@@ -159,13 +159,20 @@ function showProduct3() {
    document.querySelector("#video2").classList.add("hiddenItem");
 
 }
+//function for generating a random number
 function getRandomNumber(min, max) {
    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+//function for game play
 function game(e) {
+   //prevents default submission
    e.preventDefault();
 
+   //sets input from form as a variable
    let numGame = document.querySelector("#numGame");
+
+   //sets random number that is generated as a variable
    let winningNum = getRandomNumber(1, 10);
    
    //set error messages as a variable to use on inputs
@@ -182,14 +189,14 @@ function game(e) {
      span.classList.remove("error");
    });
    
-   //hides success section
+   //hides results section
    document.querySelector("#results").classList.remove("show");
    document.querySelector("#results").classList.add("hide");
 
-   //validates comments aren't blank
+   //validates input isn't blank and that the chosen number is between 1 and 10
    if (numGame.numGuess.value === "" || !(numGame.numGuess.value >= 1 && numGame.numGuess.value <= 10)) {
 
-      //adds errorInput class if comments isn't valid
+      //adds errorInput class if chosen number isn't valid
      numGame.numGuess.classList.add("errorInput");
        
      //adds error message
@@ -201,22 +208,25 @@ function game(e) {
    
    if (isValid) {
 
+      //determines if the random number and chosen number match
       if (numGame.numGuess.value == winningNum){
-         //shows success section
+
+         //shows results section
          document.querySelector("#results").classList.remove("hide");
          document.querySelector("#results").classList.add("show");
      
-         //shows the data they submitted
+         //shows the winning message, as well as the winning number and number they chose
          document.getElementById("gameMessage").innerHTML = `<strong>You Win!</strong><br><strong>Winning Number: </strong>${winningNum}<br><strong>Your Number: </strong>${numGame.numGuess.value}<br><strong>`;
       } else {
-         //shows success section
+         //shows results section
          document.querySelector("#results").classList.remove("hide");
          document.querySelector("#results").classList.add("show");
 
+         //shows the losing message, as well as the winning number and number they chose
          document.getElementById("gameMessage").innerHTML = `<strong>You Lose. Better Luck Next Time!</strong><br><strong>Winning Number: </strong>${winningNum}<br><strong>Your Number: </strong>${numGame.numGuess.value}<br><strong>`;
       
-         // reset the form
-         myForm.reset();
+         //reset the form
+         numGame.reset();
       }
    } 
  }
