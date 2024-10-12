@@ -430,10 +430,10 @@ footer a {
 .errorInput {
     border: 1px solid var(--orange);
 }
-#success .hide {
+#success.hide {
     display: none;
 }
-#success .show {
+#success.show {
     display: block;
 }
 #success {
@@ -467,11 +467,15 @@ strong {
     padding-top: 10px;
 }
 /* --- game --- */
-#results .hide {
+#results.hide {
     display: none;
 }
-#results .show {
+#results.show {
     display: block;
+    margin-top: 10px;
+    line-height: 1.1;
+    text-align: center;
+    font-size: 1.3rem;
 }
 
 

@@ -159,6 +159,9 @@ function showProduct3() {
    document.querySelector("#video2").classList.add("hiddenItem");
 
 }
+function getRandomNumber(min, max) {
+   return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 function game(e) {
    e.preventDefault();
 
@@ -198,20 +201,23 @@ function game(e) {
    
    if (isValid) {
 
-      //shows success section
-      document.querySelector("#results").classList.remove("hide");
-      document.querySelector("#results").classList.add("show");
+      if (numGame.numGuess.value == winningNum){
+         //shows success section
+         document.querySelector("#results").classList.remove("hide");
+         document.querySelector("#results").classList.add("show");
      
-      //shows the data they submitted
-      document.getElementById("gameMessage").innerHTML = `<strong>You Win!</strong><br><strong>Winning Number: </strong>${winningNum}<br><strong>Your Number: </strong>${numGame.numGuess.value}<br><strong>`;
-     
-     // reset the form
-       myForm.reset();
-   } else if (numGame.numGuess.value !== winningNum) {
-      document.getElementById("gameMessage").innerHTML = `<strong>You Lose. Better Luck Next Time!</strong><br><strong>Winning Number: </strong>${winningNum}<br><strong>Your Number: </strong>${numGame.numGuess.value}<br><strong>`;
+         //shows the data they submitted
+         document.getElementById("gameMessage").innerHTML = `<strong>You Win!</strong><br><strong>Winning Number: </strong>${winningNum}<br><strong>Your Number: </strong>${numGame.numGuess.value}<br><strong>`;
+      } else {
+         //shows success section
+         document.querySelector("#results").classList.remove("hide");
+         document.querySelector("#results").classList.add("show");
+
+         document.getElementById("gameMessage").innerHTML = `<strong>You Lose. Better Luck Next Time!</strong><br><strong>Winning Number: </strong>${winningNum}<br><strong>Your Number: </strong>${numGame.numGuess.value}<br><strong>`;
       
-      // reset the form
-      myForm.reset();
-   }
+         // reset the form
+         myForm.reset();
+      }
+   } 
  }
 
