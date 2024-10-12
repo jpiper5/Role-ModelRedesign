@@ -68,11 +68,11 @@
                     <section id="gameDisplay">
                         <h3>Win a Free Ticket to Your Local Show!</h3>
                         <p>Enter a number between 1 and 10 in the box to the right and click the button to play. If your number matches, you win!</p>
-                        <span id="winningNumber"></span>
-                        <span id="chosenNumber"></span>
-                        <p id="gameMessage"></p>
+                        <section id="results" class="hide">
+                            <p id="gameMessage"></p>
+                        </section>
                     </section>
-                    <form>
+                    <form id="numGame">
                         <label for="numGuess">Enter a Number Between 1 and 10:</label>
                         <span class="message">Please enter a number from 1 to 10</span>
                         <input type="number" name="numGuess" id="numGuess">

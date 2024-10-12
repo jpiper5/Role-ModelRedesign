@@ -159,92 +159,59 @@ function showProduct3() {
    document.querySelector("#video2").classList.add("hiddenItem");
 
 }
+function game(e) {
+   e.preventDefault();
 
-function game() {
-   let winningDisplay = document.getElementById("winningNumber");
-   let chosenDisplay = document.getElementById("chosenNumber");
-   let gameMessage = document.getElementById("gameMessage");
-
-  
-
-   let winningNumber = getRandomNumber(1, 10);
-   let chosenNumber = document.getElementById("numGuess");
-
-   winningDisplay.innerHTML = "Winning Number: " + winningNumber;
-   chosenDisplay.innerHTML = "Your Guess: " + chosenNumber;
-
-  
-    if(chosenNumber === 1) {
-      gameMessage.innerHTML = "You Win!"
-   } else {
-      gameMessage.innerHTML = "You Lose. Better Luck Next Time!"
-      console.log(winningNumber);
-   }
-
-  
-
- // let errorSpan = document.querySelector("#game .message");
-   // numGuess.classList.remove("errorInput");
-   // errorSpan.classList.remove("error");
-
-   // if(chosenNumber === "") {
-   //    numGuess.classList.add("errorInput");
-   //    errorSpans.class("error");
-   // } else if (!chosenNumber >= 1 && chosenNumber <= 10) {
-   //    numGuess.classList.add("errorInput");
-   //    errorSpans.class("error");
-   // // 
-
-   // let errorSpan = document.querySelector("#game .message");
-
-   // let output = "";
-
-   // let numOutput = document.getElementById("gameOutput");
-
-   // 
-
-   // if (numInput.value === "") {
-   //    numInput.classList.add("errorInput");
-   //    errorSpan.class("error");
-   // } else {
-   //    output +=
-   // }
-
-  
-
-
-}
-
-
-
-
-
-
-//  //merch cost calculator
-
-// //stores product buttons in a variable
-//  let products = document.querySelectorAll("#products button");
-
-//  //array for cart items
-//  let cartItems = [];
-
-//  //
-//  function merchCart(e) {
-//    console.log(e);
-
-//    let cart = document.querySelector("#itemsList li");
-
-//    let output = "";
+   let numGame = document.querySelector("#numGame");
+   let winningNum = getRandomNumber(1, 10);
    
-//    let currentProduct = e.target;
+   //set error messages as a variable to use on inputs
+   let errorSpans = document.querySelectorAll("#numGame .message");
+   
+   //tracks form validity
+   let isValid = true;
+   
+   //resets error input displays
+   numGame.numGuess.classList.remove("errorInput");
+   
+   //resets error message displays
+   errorSpans.forEach(function(span) {
+     span.classList.remove("error");
+   });
+   
+   //hides success section
+   document.querySelector("#results").classList.remove("show");
+   document.querySelector("#results").classList.add("hide");
 
-//    if(currentProduct)
-//  }
+   //validates comments aren't blank
+   if (numGame.numGuess.value === "" || !(numGame.numGuess.value >= 1 && numGame.numGuess.value <= 10)) {
 
+      //adds errorInput class if comments isn't valid
+     numGame.numGuess.classList.add("errorInput");
+       
+     //adds error message
+     errorSpans[0].classList.add("error");
 
+   //sets form validation variable to false
+     isValid = false;
+   } 
+   
+   if (isValid) {
 
-
-
-
-
+      //shows success section
+      document.querySelector("#results").classList.remove("hide");
+      document.querySelector("#results").classList.add("show");
+     
+      //shows the data they submitted
+      document.getElementById("gameMessage").innerHTML = `<strong>You Win!</strong><br><strong>Winning Number: </strong>${winningNum}<br><strong>Your Number: </strong>${numGame.numGuess.value}<br><strong>`;
+     
+     // reset the form
+       myForm.reset();
+   } else if (numGame.numGuess.value !== winningNum) {
+      document.getElementById("gameMessage").innerHTML = `<strong>You Lose. Better Luck Next Time!</strong><br><strong>Winning Number: </strong>${winningNum}<br><strong>Your Number: </strong>${numGame.numGuess.value}<br><strong>`;
+      
+      // reset the form
+      myForm.reset();
+   }
+ }
 

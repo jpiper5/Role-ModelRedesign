@@ -430,10 +430,10 @@ footer a {
 .errorInput {
     border: 1px solid var(--orange);
 }
-#success.hide {
+#success .hide {
     display: none;
 }
-#success.show {
+#success .show {
     display: block;
 }
 #success {
@@ -465,6 +465,13 @@ strong {
 }
 #video2 p {
     padding-top: 10px;
+}
+/* --- game --- */
+#results .hide {
+    display: none;
+}
+#results .show {
+    display: block;
 }
 
 
